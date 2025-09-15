@@ -1,0 +1,21 @@
+#include <string>
+#include <vector>
+class Solution {
+public:
+    bool isAnagram(std::string s, std::string t) {
+        if (s.size() != t.size()) {
+            return false;
+        }
+        std::vector<int> freq(26, 0);
+        for (size_t i = 0; i < s.size(); ++i) {
+            freq[s[i] - 'a']++;
+            freq[t[i] - 'a']--;
+        }
+        for (int count : freq) {
+            if (count != 0) {
+                return false;
+            }
+        }
+        return true;
+    }
+};

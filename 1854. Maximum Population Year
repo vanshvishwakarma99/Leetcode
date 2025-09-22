@@ -1,0 +1,22 @@
+#include <vector> 
+
+class Solution {
+public:
+    int maximumPopulation(std::vector<std::vector<int>>& logs) {
+        std::vector<int> population_delta(101, 0); 
+        for (const auto& log : logs) {
+            population_delta[log[0] - 1950]++;
+            population_delta[log[1] - 1950]--;
+        }
+        
+        int current_population = 0, max_population = 0, earliest_max_year = 1950;
+        for (int year = 1950; year <= 2050; ++year) {
+            current_population += population_delta[year - 1950];
+            if (current_population > max_population) {
+                max_population = current_population;
+                earliest_max_year = year;
+            }
+        }
+        return earliest_max_year;
+    }
+};

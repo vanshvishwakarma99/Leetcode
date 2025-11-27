@@ -6,8 +6,8 @@ public:
         vector<int> result(n);
 
         int i=0;
-        int j=n-1; // pointers in array
-        int k =n-1; //for result
+        int j=n-1; 
+        int k =n-1; 
         while( k>=0 ){
             int L = nums[i]*nums[i];
             int R = nums[j]*nums[j];

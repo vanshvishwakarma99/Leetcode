@@ -1,0 +1,27 @@
+class Solution {
+public:
+    vector<int> sortedSquares(vector<int>& nums) {
+        int n = nums.size();
+
+        vector<int> result(n);
+
+        int i=0;
+        int j=n-1; // pointers in array
+        int k =n-1; //for result
+        while( k>=0 ){
+            int L = nums[i]*nums[i];
+            int R = nums[j]*nums[j];
+
+            if(L>R){
+                result[k] = L;
+                i++;
+            }
+            else{
+                result[k] = R;
+                j--;
+            }
+            k--;
+        }
+        return result;
+    }
+};
